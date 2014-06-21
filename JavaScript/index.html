@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <title>おっぱいモデリング</title>
+</head>
+<body>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="form-group">
+				<div class="panel-heading">
+			    	<h3 class="panel-title">Properties</h3>
+				</div>
+				<div class="panel-body">
+					<dl>
+						<dt>Cup Size</dt>
+						<dd id="cup_size"></dd>
+						<dt>Under size</dt>
+						<dd id="under_cm"></dd>
+						<dt>Feeling</dt>
+						<dd id="feeling"></dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="form-group">
+				<div class="panel-heading">
+			    	<h3 class="panel-title">Method</h3>
+				</div>
+				<div class="panel-body">
+					<button type="submit" class="submit btn btn-primary" id="touch">Touch</button>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script language="JavaScript" type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+	<script src="js/model.js" type="text/javascript"></script>
+	<script>
+		var human = new Human();
+		$("#cup_size").text(human.breasts[0].cup_size);
+		$("#under_cm").text(human.breasts[0].under_cm);
+		$("#feeling").text(human.feelings);
+		$('#touch').on( 'click', function () {
+			human.touch();
+			alert(human.feelings);
+			$("#feeling").text(human.feelings);
+		})
+	</script>
+</body>
+</html>
